@@ -1,2 +1,2 @@
 # CID
-Hands-On de materia Clasificación Inteligente de Datos
+Hands-On de la materia Clasificación Inteligente de Datos (CID)
