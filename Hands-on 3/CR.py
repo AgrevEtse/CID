@@ -39,10 +39,10 @@ class CR:
         self.__private_a_2 = round(results[2], 6)
         self.__private_a_3 = round(results[3], 6)
 
-    # Coefficient of Correlation / R^2 = 1 - (SSE / SST)
+    # Coefficient of Determination / R^2 = 1 - (SSE / SST)
     # SSE =  (sum (y - ax^2 - bx - c) ^ 2)
     # SST = Total Sum of Square (sum (y - y_avg) ^ 2)
-    def to_compute_coefficient_correlation(self, data_x: List[float], data_y: List[float], n: int):
+    def to_compute_coefficient_determination(self, data_x: List[float], data_y: List[float], n: int):
         avg = 0
         sse = 0
         sst = 0
@@ -60,11 +60,11 @@ class CR:
         for i in range(n):
             sst += ((data_y[i] - avg) ** 2)
 
-        self.__private_coefficient_correlation = round(1 - (sse / sst), 4)
+        self.__private_coefficient_determination = round(1 - (sse / sst), 4)
 
-    # Coefficient of Determination / R = sqrt(R^2)
-    def to_compute_coefficient_determination(self) -> None:
-        self.__private_coefficient_determination = round(np.sqrt(self.__private_coefficient_correlation), 4)
+    # Coefficient of Correlation / R = sqrt(R^2)
+    def to_compute_coefficient_correlation(self) -> None:
+        self.__private_coefficient_correlation = round(np.sqrt(self.__private_coefficient_determination), 4)
 
     # Print of the regression equation using the computed a_0, a_1, a_2, and a_3
     def to_print_regression_eq(self) -> None:

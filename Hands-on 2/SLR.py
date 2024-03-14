@@ -23,10 +23,10 @@ class SLR:
     def to_compute_beta_1(self, sum_xy: float, sum_x_sum_y: float, sum_x_quad: float, sum_x_sum_x: float, n: int) -> None:
         self.__private_beta_1 = ((n * sum_xy) - sum_x_sum_y) / ((n * sum_x_quad) - sum_x_sum_x)
 
-    # Coefficient of Correlation / R^2 = 1 - (SSR / SST)
+    # Coefficient of Determination / R^2 = 1 - (SSR / SST)
     # SSR = Residual Sum of Square (sum (y - y^) ^ 2)
     # SST = Total Sum of Square (sum (y - y_avg) ^ 2
-    def to_compute_coefficient_correlation(self, data_x: List[float], data_y: List[float], n: int) -> None:
+    def to_compute_coefficient_determination(self, data_x: List[float], data_y: List[float], n: int) -> None:
         avg = 0
         ssr = 0
         sst = 0
@@ -44,15 +44,15 @@ class SLR:
         for i in range(n):
             sst += ((data_y[i] - avg) ** 2)
 
-        self.__private_coefficient_correlation = round(1 - (ssr / sst), 4)
+        self.__private_coefficient_determination = round(1 - (ssr / sst), 4)
 
     # Coefficient of Correlation / R = sqrt(R^2)
-    def to_compute_coefficient_determination(self) -> None:
-        self.__private_coefficient_determination = round(np.sqrt(self.__private_coefficient_correlation), 4)
+    def to_compute_coefficient_correlation(self) -> None:
+        self.__private_coefficient_correlation = round(np.sqrt(self.__private_coefficient_determination), 4)
 
     # Print of the regression equation using the computed beta_0 and beta_1
     def to_print_regression_eq(self) -> None:
-        print(f'Regression equation: Y = {round(self.__private_beta_0, 2)} + {round(self.__private_beta_1, 2)}x')
+        print(f'Regression equation\nY = {round(self.__private_beta_0, 2)} + {round(self.__private_beta_1, 2)}x')
 
     # Prediction of a value using the regression equation
     def to_predict(self, independent_var: float) -> float:

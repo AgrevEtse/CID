@@ -18,18 +18,19 @@ def main():
     slr.to_print_regression_eq()
 
     # Prediction using the regression equation
-    print(f'X = 60, Y = {slr.to_predict(60)}\n')
+    print(f'\nX = 60, Y = {slr.to_predict(60)}\n')
+
+    print('Coefficients')
+    # Coefficient of Determination
+    slr.to_compute_coefficient_determination(data_set.get_x(), data_set.get_y(), data_set.get_n())
+    print(f'R^2 / Determination = {slr.get_coefficient_determination()}')
 
     # Coefficient of Correlation
-    slr.to_compute_coefficient_correlation(data_set.get_x(), data_set.get_y(), data_set.get_n())
-    print(f'Coefficient of correlation: {slr.get_coefficient_correlation()}')
-
-    # Coefficient of Determination
-    slr.to_compute_coefficient_determination()
-    print(f'Coefficient of determination: {slr.get_coefficient_determination()}\n')
+    slr.to_compute_coefficient_correlation()
+    print(f'R   / Correlation   = {slr.get_coefficient_correlation()}\n')
 
     # Predictions
-    print('Predictions:')
+    print('Predictions')
     slr.print_prediction(65)
     slr.print_prediction(71)
     slr.print_prediction(77)
