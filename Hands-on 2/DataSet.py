@@ -3,8 +3,8 @@ from typing import List
 class DataSet:
     def __init__(self):
         # Hardcoded data
-        self.__private_x: List[float] = [23.0, 26.0, 30.0, 34.0, 43.0, 48.0, 52.0, 57.0, 58.0]
-        self.__private_y: List[float] = [651.0, 762.0, 856.0, 1063.0, 1190.0, 1298.0, 1421.0, 1440.0, 1518.0]
+        self.__private_x: List[float] = [1,2,3,4,5,6,7,8,9]
+        self.__private_y: List[float] = [5,10,15,20,25,30,35,40,45]
         self.__private_n: int = len(self.__private_x)
 
     # Getters
