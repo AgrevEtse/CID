@@ -1,4 +1,3 @@
-from typing import List
 import numpy as np
 
 class CR:
@@ -42,7 +41,7 @@ class CR:
     # Coefficient of Determination / R^2 = 1 - (SSE / SST)
     # SSE =  (sum (y - ax^2 - bx - c) ^ 2)
     # SST = Total Sum of Square (sum (y - y_avg) ^ 2)
-    def to_compute_coefficient_determination(self, data_x: List[float], data_y: List[float], n: int):
+    def to_compute_coefficient_determination(self, data_x: list[float], data_y: list[float], n: int):
         avg = 0
         sse = 0
         sst = 0
