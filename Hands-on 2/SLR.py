@@ -1,4 +1,3 @@
-from typing import List
 import numpy as np
 
 class SLR:
@@ -26,7 +25,7 @@ class SLR:
     # Coefficient of Determination / R^2 = 1 - (SSR / SST)
     # SSR = Residual Sum of Square (sum (y - y^) ^ 2)
     # SST = Total Sum of Square (sum (y - y_avg) ^ 2
-    def to_compute_coefficient_determination(self, data_x: List[float], data_y: List[float], n: int) -> None:
+    def to_compute_coefficient_determination(self, data_x: list[float], data_y: list[float], n: int) -> None:
         avg = 0
         ssr = 0
         sst = 0

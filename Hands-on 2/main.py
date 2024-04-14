@@ -3,7 +3,7 @@ from DiscreteMaths import DiscreteMaths
 from SLR import SLR
 
 # Main Function
-def main():
+def main() -> None:
     # Object Instances
     data_set = DataSet()
     discrete_maths = DiscreteMaths(data_set.get_n())
