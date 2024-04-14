@@ -12,5 +12,5 @@ class DataSet:
     def get_y(self) -> list[float]:
         return self.__private_y
 
-    def get_n(self) -> list[float]:
+    def get_n(self) -> int:
         return self.__private_n
