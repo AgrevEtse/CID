@@ -1,5 +1,5 @@
 class DataSet:
-    # Hardcoded data
+    # Hardcoded data from https://www.listendata.com/2017/12/k-nearest-neighbor-step-by-step-tutorial.html?authuser=0#how_to_calculate_k_nearest_neighbor_knn
     def __init__(self):
         # [Height (cms), Weight (kgs)]
         self.__private_x: list[list[float, float]] = [[158, 58], [158, 59], [158, 63], [160, 59], [160, 60], [163, 60], [163, 61], [160, 64], [163, 64], [165, 61], [165, 62], [165, 65], [168, 62], [168, 63], [168, 66], [170, 63], [170, 64], [170, 68]]

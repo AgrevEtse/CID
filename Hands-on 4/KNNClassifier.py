@@ -9,11 +9,17 @@ class KNNClassifier:
     def fit(self, X_train, y_train) -> None:
         self.X_train: list[float] = X_train
         self.y_train: list[float] = y_train
-        self.dm: DiscreteMaths = DiscreteMaths(len(X_train[0]))
+        self.dm: DiscreteMaths = DiscreteMaths()
+
+        # Standardize training data
+        self.x_train_std: list[float] = self.dm.standardize(X_train)
 
     # Make predictions based on training data
     def predict(self, X_test) -> list[int]:
-        distances: list[float] = self._compute_distances(X_test)
+        # Standardize test data
+        x_test_std: list[float] = self.dm.standardize(X_test)
+
+        distances: list[float] = self._compute_distances(x_test_std)
         nearest_neighbors: list[float] = self._get_nearest_neighbors(distances)
         predictions: list[int] = self._majority_vote(nearest_neighbors)
 
@@ -26,7 +32,7 @@ class KNNClassifier:
         for x_test in X_test:
             distances_i: list[float] = []
 
-            for x_train in self.X_train:
+            for x_train in self.x_train_std:
                 distance: float = self._calculate_distance(x_test, x_train)
                 distances_i.append(distance)
 
@@ -41,6 +47,9 @@ class KNNClassifier:
 
         elif self.metric == 'manhattan':
             return self.dm.manhattan_distance(x1, x2)
+
+        else:
+            raise ValueError('Invalid metric')
 
     # Get nearest neighbors based on distances
     def _get_nearest_neighbors(self, distances: list[float]) -> list[float]:
